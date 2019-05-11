@@ -53,6 +53,16 @@ class Student
 
   end
 
+  def self.find_by_name(name)
+    sql = <<-SQL
+      SELECT * FROM students WHERE name = ? LIMIT 1
+    SQL
+
+    DB[:conn].execute(sql, name).map {|data_base_row| self.new_from_db(data_base_row)}[0]
+    # find the student in the database given a name
+    # return a new instance of the Student class
+  end
+
   def self.create(name, grade)
 
     student = Student.new(name, grade)
