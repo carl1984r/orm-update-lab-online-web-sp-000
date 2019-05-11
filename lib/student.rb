@@ -64,13 +64,13 @@ class Student
   end
 
   def self.new_from_db(row)
-    
+
     stu = self.new
     stu.id = row[0]
     stu.name = row[1]
     stu.grade = row[2]
     stu
-    
+
   end
 
   def self.create(name, grade)
