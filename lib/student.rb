@@ -64,8 +64,9 @@ class Student
   end
 
   def self.new_from_db(row)
-    stu = self.new
-    stu.id = row[0]
+    self.new(row[0], row[1], row[2])
+    binding.pry
+    
 
 
   end
